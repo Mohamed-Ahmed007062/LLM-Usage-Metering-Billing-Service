@@ -68,5 +68,13 @@ export function createMeteringRouter(db: Database): Router {
     }
   );
 
+  router.get('/generate', (req: Request, res: Response): void => {
+    res.status(405).json({
+      error: 'MethodNotAllowed',
+      message: "The /generate endpoint only accepts POST requests. Send a POST request with headers 'X-Tenant-ID' and 'Idempotency-Key' and a JSON body specifying simulate_tokens.",
+      example_curl: `curl -X POST http://localhost:3000/generate -H "Content-Type: application/json" -H "X-Tenant-ID: tenant_free_demo" -H "Idempotency-Key: test_key_1" -d "{\\"prompt\\": \\"Hello\\", \\"simulate_tokens\\": {\\"input_tokens\\": 100, \\"output_tokens\\": 50}}"`
+    });
+  });
+
   return router;
 }
