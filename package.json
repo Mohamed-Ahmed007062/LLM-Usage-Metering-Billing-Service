@@ -1,0 +1,40 @@
+{
+  "name": "flyrank-capstone-metering-billing",
+  "version": "1.0.0",
+  "description": "Usage Metering and Billing Engine with Stripe integration, idempotent metering, and quota enforcement",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "node ./node_modules/typescript/bin/tsc",
+    "start": "node ./node_modules/tsx/dist/cli.mjs src/index.ts",
+    "dev": "node ./node_modules/tsx/dist/cli.mjs watch src/index.ts",
+    "seed": "node ./node_modules/tsx/dist/cli.mjs src/scripts/seed.ts",
+    "test": "node ./node_modules/vitest/vitest.mjs run"
+  },
+  "keywords": [
+    "metering",
+    "billing",
+    "stripe",
+    "idempotency",
+    "quotas"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "dotenv": "^18.0.8",
+    "express": "^5.3.0",
+    "stripe": "^23.0.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.5",
+    "@types/supertest": "^7.2.1",
+    "supertest": "^7.3.1",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  }
+}
