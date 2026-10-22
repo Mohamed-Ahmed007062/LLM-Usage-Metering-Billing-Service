@@ -1,0 +1,10 @@
+run: npm start
+seed: npm run seed
+test: npm test
+base_url: http://localhost:3000
+endpoints:
+  billable: POST /generate
+  usage: GET /usage
+  checkout: POST /checkout/session
+  webhook: POST /webhooks/stripe
+  health: GET /health
