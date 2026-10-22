@@ -164,7 +164,7 @@ async function main() {
 
     console.log('--- GET /usage Before Upgrade ---');
     const resUsageBefore = await fetch(`http://localhost:3099/usage?tenant_id=${tenant3.id}`);
-    const bodyUsageBefore = await resUsageBefore.json();
+    const bodyUsageBefore: any = await resUsageBefore.json();
     console.log(`Plan: ${bodyUsageBefore.plan}, API Calls Limit: ${bodyUsageBefore.usage.api_calls.limit}, Token Limit: ${bodyUsageBefore.usage.tokens.limit}`);
 
     // Create Checkout Session
@@ -243,7 +243,7 @@ async function main() {
     // Verify GET /usage reflects new limits (Probe 3)
     console.log('\n--- GET /usage After Webhook Upgrade ---');
     const resUsageAfter = await fetch(`http://localhost:3099/usage?tenant_id=${tenant3.id}`);
-    const bodyUsageAfter = await resUsageAfter.json();
+    const bodyUsageAfter: any = await resUsageAfter.json();
     console.log(`Plan: ${bodyUsageAfter.plan}, API Calls Limit: ${bodyUsageAfter.usage.api_calls.limit}, Token Limit: ${bodyUsageAfter.usage.tokens.limit}`);
 
     // -------------------------------------------------------------
@@ -274,12 +274,12 @@ async function main() {
         },
       }),
     });
-    const bodyPricing = await resPricing.json();
+    const bodyPricing: any = await resPricing.json();
     console.log(`Status: ${resPricing.status}`);
     console.log('Pricing Breakdown:', JSON.stringify(bodyPricing.cost, null, 2));
 
     const resPricingRollup = await fetch(`http://localhost:3099/usage?tenant_id=${tenant5.id}`);
-    const bodyPricingRollup = await resPricingRollup.json();
+    const bodyPricingRollup: any = await resPricingRollup.json();
     console.log('\nGET /usage Rollup:');
     console.log(JSON.stringify(bodyPricingRollup, null, 2));
 
